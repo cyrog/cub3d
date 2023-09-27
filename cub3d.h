@@ -6,7 +6,7 @@
 /*   By: lobertho <lobertho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 14:17:57 by lobertho          #+#    #+#             */
-/*   Updated: 2023/09/27 18:04:43 by cgross           ###   ########.fr       */
+/*   Updated: 2023/09/27 18:25:05 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,9 +158,12 @@ char			*gnl_custom(int fd);
 int				parse_textures(char *file);
 int				parse_color(char *file);
 unsigned int	string_to_rgb(char **copy, char flag);
+bool			valid_value(char **color);
 
 int		space_counter(char *str);
 bool	is_space(char c);
+bool	is_digit(char c);
+bool	is_rgb(int rgb);
 char	*space_remover(char *str);
 int		ft_strcmp(char *str1, char *str2);
 char	*ft_substr(const char *s, unsigned int start, size_t len);

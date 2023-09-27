@@ -6,7 +6,7 @@
 /*   By: cgross <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 17:58:20 by cgross            #+#    #+#             */
-/*   Updated: 2023/09/27 17:58:30 by cgross           ###   ########.fr       */
+/*   Updated: 2023/09/27 18:40:08 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,18 @@ int		space_counter(char *str)
 		i++;
 	}
 	return (count);
+}
+
+bool	is_digit(char c)
+{
+	if (c > '0' && c < '9')
+		return (true);
+	return (false);
+}
+
+bool	is_rgb(int rgb)
+{
+	if (rgb >= 0 && rgb <= 255)
+		return (true);
+	return (false);
 }

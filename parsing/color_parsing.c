@@ -6,11 +6,39 @@
 /*   By: cgross <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 15:46:52 by cgross            #+#    #+#             */
-/*   Updated: 2023/09/27 18:02:53 by cgross           ###   ########.fr       */
+/*   Updated: 2023/09/27 18:42:02 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
+
+bool	valid_value(char **color)
+{
+	int	i;
+	int	j;
+	int	rgb[3];
+
+	i = -1;
+	while (color[++i])
+	{
+		rgb[i] = ft_atoi(color[i]);
+		if (is_rgb(rgb[i]) != true)
+		{
+			printf("error: ///////////incorrect rgb color values\n");
+			return (false);
+		}
+		j = -1;
+		while (color[i][++j])
+		{
+			if (is_digit(color[i][j] == false))
+			{
+				printf("error: incorrect rgb color values\n");
+				return (false);
+			}
+		}
+	}
+	return (true);
+}
 
 char	*space_remover(char *str)
 {
@@ -72,16 +100,11 @@ unsigned int	string_to_rgb(char **copy, char flag)
 
 	cleanstring = space_remover(color_strings(copy, flag));
 	color = ft_split(cleanstring, ',');
+	if (valid_value(color) != true)
+		exit(-1);
 	i = -1;
 	while (color[++i])
-	{
 		rgb[i] = ft_atoi(color[i]);
-		if (rgb[i] > 255 || rgb[i] < 0)
-		{
-			printf("error: incorrect rgb values\n");
-			exit(-1);
-		}
-	}
 	vrairgb = 0;
 	vrairgb = (rgb[0] << 16 | rgb[1] << 8 | rgb[2]);
 	printf("[%u]\n", vrairgb);
