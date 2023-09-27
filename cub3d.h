@@ -6,7 +6,7 @@
 /*   By: lobertho <lobertho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 14:17:57 by lobertho          #+#    #+#             */
-/*   Updated: 2023/09/27 15:47:37 by cgross           ###   ########.fr       */
+/*   Updated: 2023/09/27 18:04:43 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,16 +148,20 @@ bool	check_validarg(int argc, char **argv);
 bool	color_format(char **copy);
 char	*color_strings(char **copy, char c);
 
-int		ft_atoi(const char *str);
-int		ft_strncmp(const char *s1, const char *s2, size_t n);
-void	free_tab(char **str);
-char	**ft_split(char const *str, char c);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
-char	*get_next_line(int fd);
-char	*gnl_custom(int fd);
-int		parse_textures(char *file);
-int		parse_color(char *file);
+int				ft_atoi(const char *str);
+int				ft_strncmp(const char *s1, const char *s2, size_t n);
+void			free_tab(char **str);
+char			**ft_split(char const *str, char c);
+char			*ft_substr(char const *s, unsigned int start, size_t len);
+char			*get_next_line(int fd);
+char			*gnl_custom(int fd);
+int				parse_textures(char *file);
+int				parse_color(char *file);
+unsigned int	string_to_rgb(char **copy, char flag);
 
+int		space_counter(char *str);
+bool	is_space(char c);
+char	*space_remover(char *str);
 int		ft_strcmp(char *str1, char *str2);
 char	*ft_substr(const char *s, unsigned int start, size_t len);
 
