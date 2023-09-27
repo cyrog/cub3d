@@ -6,7 +6,7 @@
 /*   By: lobertho <lobertho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 14:03:03 by lobertho          #+#    #+#             */
-/*   Updated: 2023/09/27 15:45:10 by cgross           ###   ########.fr       */
+/*   Updated: 2023/09/27 15:56:31 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ int	main(int argc, char **argv)
 	char **copy = copy_fd(argc, argv);
 	char	*ciel_string = color_strings(copy, 'F');
 	char	*floor_string = color_strings(copy, 'C');
-	printf("%s\n", ciel_string);
-	printf("%s\n", floor_string);
+	printf("[%s]\n", ciel_string);
+	printf("[%s]\n", floor_string);
 
 	//parse_color(argv[1]);
 /*	initcub(img);
