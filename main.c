@@ -6,7 +6,7 @@
 /*   By: lobertho <lobertho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 14:03:03 by lobertho          #+#    #+#             */
-/*   Updated: 2023/09/27 17:21:39 by cgross           ###   ########.fr       */
+/*   Updated: 2023/09/30 13:33:34 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,11 @@ int	main(int argc, char **argv)
 	char **copy = copy_fd(argc, argv);
 	string_to_rgb(copy, 'F');
 	string_to_rgb(copy, 'C');
+
+	printf("%u\n", string_to_rgb(copy, 'F'));
+	printf("%u\n", string_to_rgb(copy, 'C'));
+//	map_check(copy);
+//	printf("%d\n", map_check(copy);
 
 	//parse_color(argv[1]);
 /*	initcub(img);

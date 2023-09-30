@@ -6,11 +6,11 @@
 /*   By: cgross <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 15:46:52 by cgross            #+#    #+#             */
-/*   Updated: 2023/09/27 18:42:02 by cgross           ###   ########.fr       */
+/*   Updated: 2023/09/30 13:55:25 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../cub3d.h"
+#include "cub3d.h"
 
 bool	valid_value(char **color)
 {
@@ -21,21 +21,41 @@ bool	valid_value(char **color)
 	i = -1;
 	while (color[++i])
 	{
-		rgb[i] = ft_atoi(color[i]);
-		if (is_rgb(rgb[i]) != true)
-		{
-			printf("error: ///////////incorrect rgb color values\n");
-			return (false);
-		}
 		j = -1;
 		while (color[i][++j])
 		{
-			if (is_digit(color[i][j] == false))
+			if (!is_digit(color[i][j]))
 			{
-				printf("error: incorrect rgb color values\n");
+				printf("Error\nincorrect rgb color values: digits only pls\n");
 				return (false);
 			}
 		}
+		rgb[i] = ft_atoi(color[i]);
+		if (is_rgb(rgb[i]) != true)
+		{
+			printf("Error\nincorrect rgb color values: range is 0 to 255\n");
+			return (false);
+		}
+	}
+	return (true);
+}
+
+bool	virgule_check(char *str)
+{
+	int	count;
+	int	i;
+
+	count = 0;
+	i = -1;
+	while (str[++i])
+	{
+		if (str[i] == ',')
+			count++;
+	}
+	if (count != 2)
+	{
+		printf("Error\ncolor format is 'x, x, x'\n");
+		return (false);
 	}
 	return (true);
 }
@@ -95,18 +115,19 @@ unsigned int	string_to_rgb(char **copy, char flag)
 	char			*cleanstring;
 	char			**color;
 	int				rgb[3];
-	unsigned int	vrairgb;
+	unsigned int	hexa_rgb;
 	int				i;
 
 	cleanstring = space_remover(color_strings(copy, flag));
+	if (!virgule_check(cleanstring))
+		exit(-1);
 	color = ft_split(cleanstring, ',');
-	if (valid_value(color) != true)
+	if (!valid_value(color))
 		exit(-1);
 	i = -1;
 	while (color[++i])
 		rgb[i] = ft_atoi(color[i]);
-	vrairgb = 0;
-	vrairgb = (rgb[0] << 16 | rgb[1] << 8 | rgb[2]);
-	printf("[%u]\n", vrairgb);
-	return (vrairgb);
+	hexa_rgb = 0;
+	hexa_rgb = (rgb[0] << 16 | rgb[1] << 8 | rgb[2]);
+	return (hexa_rgb);
 }

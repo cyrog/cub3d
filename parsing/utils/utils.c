@@ -6,7 +6,7 @@
 /*   By: cgross <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 17:58:20 by cgross            #+#    #+#             */
-/*   Updated: 2023/09/27 18:40:08 by cgross           ###   ########.fr       */
+/*   Updated: 2023/09/30 13:54:34 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int		space_counter(char *str)
 
 bool	is_digit(char c)
 {
-	if (c > '0' && c < '9')
+	if (c >= '0' && c <= '9')
 		return (true);
 	return (false);
 }
@@ -47,4 +47,18 @@ bool	is_rgb(int rgb)
 	if (rgb >= 0 && rgb <= 255)
 		return (true);
 	return (false);
+}
+
+bool	line_isspace(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] != ' ' || str[i] != '\t')
+			return (false);
+	}
+	return (true);
+
 }
