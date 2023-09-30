@@ -6,7 +6,7 @@
 /*   By: lobertho <lobertho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 15:55:27 by lobertho          #+#    #+#             */
-/*   Updated: 2023/09/26 12:34:15 by lobertho         ###   ########.fr       */
+/*   Updated: 2023/09/30 14:26:30 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,10 +86,10 @@ void	draw_walls(t_data *s)
 	if (s->drawend >= s->h)
 		s->drawend = s->h;
 	while (d < s->drawstart) //dessiner le plafond
-		my_mlx_pixel_put(s, s->x, d++, 0x00000080);
+		my_mlx_pixel_put(s, s->x, d++, s->color_ciel);
 	while (s->drawstart < s->drawend) //dessiner les murs
-		my_mlx_pixel_put(s, s->x, s->drawstart++, s->color);
+		my_mlx_pixel_put(s, s->x, s->drawstart++, s->color_wall);
 	d = s->drawend; //dessiner le sol
 	while (d > 0 && d < HAUTEUR)
-		my_mlx_pixel_put(s, s->x, d++, 0x0000FF00);
+		my_mlx_pixel_put(s, s->x, d++, s->color_floor);
 }

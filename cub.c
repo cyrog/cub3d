@@ -6,17 +6,19 @@
 /*   By: lobertho <lobertho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:43:30 by lobertho          #+#    #+#             */
-/*   Updated: 2023/09/27 11:52:49 by cgross           ###   ########.fr       */
+/*   Updated: 2023/09/30 14:29:03 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	initcub(t_data *s)
+void	initcub(t_data *s, char **copy)
 {
 	s->h = HAUTEUR;
 	s->largeur = LARGEUR;
-	s->color = 0x00FF0000;
+	s->color_ciel = string_to_rgb(copy, 'C');
+	s->color_floor = string_to_rgb(copy, 'F');
+	s->color_wall = 0x00FF0000;
 	s->posX = 22;
 	s->posY = 12;
 	s->dirX = -1;

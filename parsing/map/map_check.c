@@ -6,7 +6,7 @@
 /*   By: cgross <cgross@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 12:48:30 by cgross            #+#    #+#             */
-/*   Updated: 2023/09/30 13:28:09 by cgross           ###   ########.fr       */
+/*   Updated: 2023/09/30 14:20:22 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,7 @@ bool	map_check(char **copy)
 		{
 			while (is_space(copy[i][j])
 				j++;
+			if (copy[i][j] == '1' || copy[i][j] == '0'))
+
 	}
 }

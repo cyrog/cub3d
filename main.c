@@ -6,7 +6,7 @@
 /*   By: lobertho <lobertho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 14:03:03 by lobertho          #+#    #+#             */
-/*   Updated: 2023/09/30 13:33:34 by cgross           ###   ########.fr       */
+/*   Updated: 2023/09/30 14:25:21 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,12 @@ int	main(int argc, char **argv)
 					&img->line_length, &img->endian);
 					*/
 	char **copy = copy_fd(argc, argv);
-	string_to_rgb(copy, 'F');
-	string_to_rgb(copy, 'C');
-
-	printf("%u\n", string_to_rgb(copy, 'F'));
-	printf("%u\n", string_to_rgb(copy, 'C'));
-//	map_check(copy);
-//	printf("%d\n", map_check(copy);
 
 	//parse_color(argv[1]);
-/*	initcub(img);
+	initcub(img, copy);
+	printf("%u\n", img->color_ciel);
+	printf("%u\n", img->color_floor);
+	/*
 	cub(img);
 	mlx_hook(img->mlx_win, 2, (1L << 0), ft_kpress, img);
 	mlx_hook(img->mlx_win, 3, (1L << 1), ft_krelease, img);

@@ -6,7 +6,7 @@
 /*   By: lobertho <lobertho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 14:17:57 by lobertho          #+#    #+#             */
-/*   Updated: 2023/09/27 18:25:05 by cgross           ###   ########.fr       */
+/*   Updated: 2023/09/30 14:26:17 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,8 @@ typedef struct s_data {
 	int		line_length;
 	int		endian;
 	int		color_floor;
-	int		color_ceiling;
-	int		color;
+	int		color_ciel;
+	int		color_wall;
 	int		drawstart;
 	int		drawend;
 	int		largeur; // LARGEUR
@@ -136,7 +136,7 @@ int	moovews(t_data *s);
 void	my_mlx_pixel_put(t_data *img, int x, int y, int color);
 void	init_raycast(t_data *s);
 void	cub(t_data *s);
-void	initcub(t_data *s);
+void	initcub(t_data *s, char **copy);
 void	init_directions(t_data *s);
 void	dda_and_height(t_data *s);
 void	draw_walls(t_data *s);
