@@ -6,7 +6,7 @@
 /*   By: lobertho <lobertho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 14:03:03 by lobertho          #+#    #+#             */
-/*   Updated: 2023/10/02 22:11:55 by cgross           ###   ########.fr       */
+/*   Updated: 2023/10/02 23:16:50 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,9 @@ int	main(int argc, char **argv)
 					*/
 	char **copy = copy_fd(argc, argv);
 	initcub(img, copy);
-	map_init(img, copy);
+	int	**map;
+	map = map_init(img, copy);
+	fill_it(map, img);
 	/*
 	cub(img);
 	mlx_hook(img->mlx_win, 2, (1L << 0), ft_kpress, img);

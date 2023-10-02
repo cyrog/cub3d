@@ -6,7 +6,7 @@
 /*   By: lobertho <lobertho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 14:17:57 by lobertho          #+#    #+#             */
-/*   Updated: 2023/10/02 21:27:51 by cgross           ###   ########.fr       */
+/*   Updated: 2023/10/02 22:54:54 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,8 @@ typedef struct s_data {
 	int		map_h;
 	int		map_l;
 	int		**map;
+	int		player_posX;
+	int		player_posY;
 }	t_data;
 
 int	ft_kpress(int key, t_data *img);
@@ -178,4 +180,8 @@ int		hauteur_map(char **copy);
 int		largeur_map(char **copy);
 int		**map_zero(char **copy);
 int		**map_init(t_data *data, char **copy);
+
+bool	find_player(int **map, t_data *s);
+void	rec_fill(int **map, t_data *s, int target, int h, int l);
+void	fill_it(int **map, t_data *s);
 #endif
