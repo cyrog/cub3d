@@ -6,7 +6,7 @@
 /*   By: lobertho <lobertho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 14:17:57 by lobertho          #+#    #+#             */
-/*   Updated: 2023/09/30 14:26:17 by cgross           ###   ########.fr       */
+/*   Updated: 2023/10/02 21:27:51 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,9 @@ typedef struct s_data {
 	double	h; // hauteur de la fenetre
 	double	movespeed; //vitesse de deplacement
 	double	rotspeed; //vitesse de rotation de la camera
+	int		map_h;
+	int		map_l;
+	int		**map;
 }	t_data;
 
 int	ft_kpress(int key, t_data *img);
@@ -157,6 +160,8 @@ char			*get_next_line(int fd);
 char			*gnl_custom(int fd);
 int				parse_textures(char *file);
 int				parse_color(char *file);
+bool			get_to_firstline(char **copy);
+int				return_check_args(char **copy);
 unsigned int	string_to_rgb(char **copy, char flag);
 bool			valid_value(char **color);
 
@@ -168,4 +173,9 @@ char	*space_remover(char *str);
 int		ft_strcmp(char *str1, char *str2);
 char	*ft_substr(const char *s, unsigned int start, size_t len);
 
+int		map_first_line(char **copy);
+int		hauteur_map(char **copy);
+int		largeur_map(char **copy);
+int		**map_zero(char **copy);
+int		**map_init(t_data *data, char **copy);
 #endif

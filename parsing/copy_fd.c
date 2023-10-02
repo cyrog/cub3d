@@ -6,7 +6,7 @@
 /*   By: cgross <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 12:41:38 by cgross            #+#    #+#             */
-/*   Updated: 2023/09/30 13:31:31 by cgross           ###   ########.fr       */
+/*   Updated: 2023/10/02 20:09:55 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,11 @@ int		fd_size(int argc, char **argv)
 	fd = open_fd(argc, argv);
 	if (fd < 0)
 		return (-1);
-	line = get_next_line(fd);
+	line = gnl_custom(fd);
 	while (line != NULL)
 	{
 		free(line);
-		line = get_next_line(fd);
+		line = gnl_custom(fd);
 		size++;
 	}
 	close(fd);
@@ -85,11 +85,11 @@ char	**copy_fd(int argc, char **argv)
 	if (copy == NULL)
 		exit(-1);
 	i = 0;
-	line = get_next_line(fd);
+	line = gnl_custom(fd);
 	while (line != NULL)
 	{
 		copy[i] = line;
-		line = get_next_line(fd);
+		line = gnl_custom(fd);
 		i++;
 	}
 	copy[i] = NULL;

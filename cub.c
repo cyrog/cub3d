@@ -6,7 +6,7 @@
 /*   By: lobertho <lobertho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:43:30 by lobertho          #+#    #+#             */
-/*   Updated: 2023/09/30 14:29:03 by cgross           ###   ########.fr       */
+/*   Updated: 2023/10/02 22:08:28 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void	initcub(t_data *s, char **copy)
 	s->s = 0;
 	s->l = 0;
 	s->r = 0;
+	s->map_h = hauteur_map(copy);
+	s->map_l = largeur_map(copy);
 }
 
 int	ft_refresh(t_data *s)
@@ -46,7 +48,7 @@ int	ft_refresh(t_data *s)
 void	cub(t_data *s)
 {
 	s->x = 0;
-	while (s->x < LARGEUR)
+	while (s->x < s->map_l)
 	{
 		init_raycast(s);
 		init_directions(s);

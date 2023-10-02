@@ -6,7 +6,7 @@
 #    By: lobertho <lobertho@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/06 14:23:07 by lobertho          #+#    #+#              #
-#    Updated: 2023/09/30 14:07:07 by cgross           ###   ########.fr        #
+#    Updated: 2023/09/30 14:50:39 by cgross           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRCS = $(wildcard *.c)	\
 	   $(wildcard gnl/*.c)	\
 	   $(wildcard parsing/*.c)	\
 	   $(wildcard parsing/utils/*.c)	\
-	  # $(wildcard parsing/map/*.c)	\
+	   $(wildcard parsing/map/*.c)
 
 OBJS = $(SRCS:.c=.o)
 
