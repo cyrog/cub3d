@@ -55,26 +55,30 @@ int	largeur_map(char **copy)
 	return (max_len);
 }
 
-int	**map_zero(char **copy)
+char	**map_copy(char **copy)
 {
-	int	**zero;
+	char	**map;
 	int	largeur;
 	int	hauteur;
-	int	i;
-	int	j;
+	int	start;
+	int	h;
 
 	hauteur = hauteur_map(copy);
 	largeur = largeur_map(copy);
-	zero = (int**)malloc(sizeof(int*) * hauteur);
-	if (!zero)
+	start = map_first_line(copy);
+	map = (char**)malloc(sizeof(int*) * hauteur);
+	if (!map)
 		return (NULL);
-	i = -1;
-	while (++i < hauteur)
+	h = -1;
+	while (++h < hauteur)
 	{
-		j = -1;
-		zero[i] = (int*)malloc(sizeof(int) * largeur);
-		while (++j < largeur)
-			zero[i][j] = 0;
+		//printf("%s", copy[start]);
+		map[h] = ft_strdup(copy[start + h], largeur + 1);
+		//printf("largeur: %d\n", largeur);
+		printf("%s", map[h]);
+		printf("\n");
 	}
-	return (zero);
+	map[h] = NULL;
+		printf("/////////////////////////////////\n");
+	return (map);
 }

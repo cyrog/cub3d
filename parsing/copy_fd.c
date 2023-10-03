@@ -6,7 +6,7 @@
 /*   By: cgross <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 12:41:38 by cgross            #+#    #+#             */
-/*   Updated: 2023/10/02 20:09:55 by cgross           ###   ########.fr       */
+/*   Updated: 2023/10/03 14:10:43 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,10 @@ char	**copy_fd(int argc, char **argv)
 	{
 		copy[i] = line;
 		line = gnl_custom(fd);
+		printf("%s", copy[i]);
 		i++;
 	}
+	printf("///////////////////////\n");
 	copy[i] = NULL;
 	close(fd);
 	if (line)

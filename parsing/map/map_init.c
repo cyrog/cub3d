@@ -1,33 +1,31 @@
 #include "cub3d.h"
 
+
+//wrong, need convert char_copy in int and lets go
 int	**map_init(t_data *s, char **copy)
 {
-	int	start;
 	int	h;
 	int	l;
 	int	**map;
 
-	map = map_zero(copy);
-	start = map_first_line(copy);
+	int	hauteur = hauteur_map(copy);
+	int	largeur = largeur_map(copy);
+	map = (int**)malloc(sizeof(int*) * hauteur);
+	if (!map)
+		return (NULL);
 	h = -1;
+	printf("/////////////////////////////\n");
+	printf("test\n");
 	while (++h < s->map_h)
 	{
 		l = -1;
-		while (++l < s->map_l)
+		map[h] = (int*)malloc(sizeof(int*) * largeur);
+	//	printf("test/////////////////////\n");
+		while (copy[h][++l] && copy[h][++l] != '\n')
 		{
-			if (copy[start][l] == '1')
-				map[h][l] = 1;
-			else if (copy[start][l] == 'N')
-				map[h][l] = 2;
-			else if (copy[start][l] == 'S')
-				map[h][l] = 3;
-			else if (copy[start][l] == 'W')
-				map[h][l] = 4;
-			else if (copy[start][l] == 'E')
-				map[h][l] = 5;
+			map[h][l] = ft_atoi(copy[h]);
 			printf("%d", map[h][l]);
 		}
-		start++;
 		printf("\n");
 	}
 	return (map);

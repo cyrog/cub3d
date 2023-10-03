@@ -6,7 +6,7 @@
 /*   By: lobertho <lobertho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 14:17:57 by lobertho          #+#    #+#             */
-/*   Updated: 2023/10/02 22:54:54 by cgross           ###   ########.fr       */
+/*   Updated: 2023/10/03 16:55:57 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,11 +174,12 @@ bool	is_rgb(int rgb);
 char	*space_remover(char *str);
 int		ft_strcmp(char *str1, char *str2);
 char	*ft_substr(const char *s, unsigned int start, size_t len);
+char	*ft_strdup(char *s1, int max_len);
 
 int		map_first_line(char **copy);
 int		hauteur_map(char **copy);
 int		largeur_map(char **copy);
-int		**map_zero(char **copy);
+char	**map_copy(char **copy);
 int		**map_init(t_data *data, char **copy);
 
 bool	find_player(int **map, t_data *s);
