@@ -6,7 +6,7 @@
 /*   By: lobertho <lobertho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 14:03:03 by lobertho          #+#    #+#             */
-/*   Updated: 2023/10/03 16:58:08 by cgross           ###   ########.fr       */
+/*   Updated: 2023/10/03 18:06:11 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ int	main(int argc, char **argv)
 					*/
 	char **copy = copy_fd(argc, argv);
 	initcub(img, copy);
-	//int	**map_int;
+	int	**map_int;
 	char **map;
-//	map = map_init(img, copy);
 	map = map_copy(copy);
+	map_int = map_init(img, map);
 	//map_int = map_init(img, map);
 //	fill_it(map, img);
 	/*

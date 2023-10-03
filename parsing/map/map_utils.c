@@ -70,15 +70,14 @@ char	**map_copy(char **copy)
 	if (!map)
 		return (NULL);
 	h = -1;
+	printf("//////////////////////////////////////\n");
 	while (++h < hauteur)
 	{
-		//printf("%s", copy[start]);
 		map[h] = ft_strdup(copy[start + h], largeur + 1);
-		//printf("largeur: %d\n", largeur);
 		printf("%s", map[h]);
 		printf("\n");
 	}
 	map[h] = NULL;
-		printf("/////////////////////////////////\n");
+	printf("//////////////////////////////////////\n");
 	return (map);
 }
