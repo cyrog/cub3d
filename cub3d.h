@@ -6,7 +6,7 @@
 /*   By: lobertho <lobertho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 14:17:57 by lobertho          #+#    #+#             */
-/*   Updated: 2023/10/03 16:55:57 by cgross           ###   ########.fr       */
+/*   Updated: 2023/10/16 16:28:34 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,10 @@ typedef struct s_data {
 	int		**map;
 	int		player_posX;
 	int		player_posY;
+	char	*no_wall;
+	char	*so_wall;
+	char	*we_wall;
+	char	*ea_wall;
 }	t_data;
 
 int	ft_kpress(int key, t_data *img);
@@ -142,6 +146,7 @@ void	my_mlx_pixel_put(t_data *img, int x, int y, int color);
 void	init_raycast(t_data *s);
 void	cub(t_data *s);
 void	initcub(t_data *s, char **copy);
+void	filecub(t_data *s, char **copy);
 void	init_directions(t_data *s);
 void	dda_and_height(t_data *s);
 void	draw_walls(t_data *s);
@@ -181,6 +186,10 @@ int		hauteur_map(char **copy);
 int		largeur_map(char **copy);
 char	**map_copy(char **copy);
 int		**map_init(t_data *data, char **copy);
+
+char	*textures_path(char **copy, char *flag);
+char	*get_path(char *line, int start);
+bool	valid_texture(char *path);
 
 bool	find_player(int **map, t_data *s);
 void	rec_fill(int **map, t_data *s, int target, int h, int l);
