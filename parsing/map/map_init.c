@@ -36,7 +36,11 @@ int	**map_init(t_data *s, char **map_c)
 			else if (map_c[h][l] == '0')
 				map[h][l] = 0;
 			else
+			{
 			   map[h][l] = convert(map_c[h][l]);
+	//		   s->posx = h;
+	//		   s->posx = l;
+			}
 			printf("%d", map[h][l]);
 		}
 		printf("\n");
