@@ -25,7 +25,6 @@ int	**map_init(t_data *s, char **map_c)
 	if (!map)
 		return (NULL);
 	h = -1;
-	printf("/////////////////////////////\n");
 	while (++h < s->map_h)
 	{
 		l = -1;

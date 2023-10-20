@@ -6,7 +6,7 @@
 /*   By: lobertho <lobertho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 18:43:30 by lobertho          #+#    #+#             */
-/*   Updated: 2023/10/16 16:46:53 by cgross           ###   ########.fr       */
+/*   Updated: 2023/10/20 17:26:20 by cgross           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,10 @@ void	filecub(t_data *s, char **copy)
 	s->color_floor = string_to_rgb(copy, 'F');
 	s->color_wall = 0x00FF0000;
 	s->no_wall = textures_path(copy, "NO");
-		free(s->no_wall);
 	s->so_wall = textures_path(copy, "SO");
-	if (!valid_texture(s->so_wall) || !valid_texture(s->no_wall) ||
-				!valid_texture(s->ea_wall) || !valid_texture(we_wall))
-	{
-
-		free(s->no_wall);
-		free(s->so_wall);
-		free(s->ea_wall);
-		free(s->we_wall);
-	}
+	s->ea_wall = textures_path(copy, "EA");
+	s->we_wall = textures_path(copy, "WE");
+	//valid texture ?
 }
 
 int	ft_refresh(t_data *s)
